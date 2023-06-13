@@ -1,0 +1,224 @@
+ul, li, p {
+  padding: 0;
+  margin: 0;
+}
+.settings-outer {
+  padding: 0;
+  height: 100vh;
+  @media screen and (min-width: 756px) {
+    padding: 16px;
+  }
+}
+.settings-inner {
+  display: block;
+  h1 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.5;
+    word-break: break-all;
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+  .settings-sidebar  {
+    width: 100%;
+    padding: 24px 0 0;
+    margin-right: 0;
+    margin-bottom: 8px;
+    background-color: white;
+    box-shadow: 0 0 1px rgb(34 34 34 / 8%);
+    .settings-sidebar-nav {
+      display: flex;
+      overflow: scroll;
+      white-space: nowrap;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      padding-left: 8px;
+      &::-webkit-scrollbar {
+        display:none;
+      }
+      .settings-sidebar-list {
+        display: flex;
+        width: auto;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        .settings-sidebar-item {
+          font-weight: 700;
+          width: 100%;
+          &.active {
+            border-bottom: 2px solid #212121;
+          }
+          .settings-sidebar-link {
+            cursor: pointer;
+            padding: 12px 8px;
+            font-size: .875rem;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            &:hover {
+              color: inherit;
+              background-color: rgba(34,34,34,.05);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.settings-account {
+  padding: 16px;
+  .account-sidebar {
+    display: none;
+    @media screen and (min-width: 756px) {
+      display: block;
+    }
+    .account-sidebar-list {
+      .account-sidebar-item {
+        &.active {
+          border-left: 2px solid #212121;
+          font-weight: bold;
+        }
+        .account-sidebar-link {
+          cursor: pointer;
+          padding: 8px;
+          font-size: .875rem;
+          position: relative;
+          z-index: 1;
+          display: flex;
+          align-items: center;
+          width: 100%;
+          &:hover {
+            color: inherit;
+            background-color: rgba(34,34,34,.05);
+          }
+        }
+      }
+    }
+  }
+}
+
+.account-wrapper {
+  padding-top: 4px;
+  .description {
+    margin-top: 4px;
+    font-size: 0.6875rem;
+  }
+  .edit-btn {
+    font-size: 0.8rem;
+    color: #2CB696;
+  }
+  .user-info {
+    text-align: center;
+    .user-info-image {
+      width: 110px;
+      height: 110px;
+      margin: auto;
+      background-color: white;
+      border: 4px solid white;
+      border-radius: 50%;
+      box-shadow: 0 1px 1px 0 rgb(34 34 34 / 30%);
+    }
+    .user-info-name {
+      font-size: 1.125rem;
+      font-weight: bold;
+    }
+  }
+  .faq-item {
+    position: relative;
+    display: block;
+    padding: 16px;
+    margin-top: 8px;
+    font-weight: 700;
+    text-decoration: none;
+    border: 1px solid #e6e6e6;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    &:hover {
+      color: inherit;
+      text-decoration: underline;
+    }
+  }
+  .faq-item-icon {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+  }
+  .withdrawal-caution {
+    &:hover {
+      color: inherit;
+      text-decoration: underline;
+    }
+  }
+}
+
+.reaction-list, .notification-list {
+  .reaction-list-item, .notification-list-item {
+    padding: 16px 0;
+    border-bottom: 1px solid #f2f2f2;
+    &:first-child {
+      padding-top: 0;
+    }
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+  .reaction-img-wrapper, .notification-img-wrapper {
+    flex: none;
+    width: 128px;
+    margin: 0 auto 16px;
+    @media screen and (min-width: 756px) {
+      width: 120px;
+      margin: 0;
+    }
+    img {
+      width: 100%;
+    }
+
+  }
+  .title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+  .description {
+    margin-bottom: 16px;
+    font-size: 0.875rem;
+    color: $gray-600;
+  }
+  .setting-btn {
+    margin-left: 16px;
+    font-size: 0.875rem;
+    color: $primary;
+  }
+}
+.reaction-wrapper {
+  .like-nav {
+    display: flex;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin-bottom: 16px;
+    border: 1px solid $gray-100;
+    border-radius: 4px;
+  }
+  .like-nav-item {
+    height: 32px;
+    padding: 0 16px;
+    font-size: .875rem;
+    line-height: 30px;
+    color: $black;
+    border-right: 1px solid $gray-100;
+  }
+  .like-nav-item.is-active {
+    color: $black;
+    background-color: $gray-100;
+  }
+  .like-image {
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,22 @@
+ja:
+  admin:
+    deny: アクセスが拒否されました
+    create:
+      success: 作成に成功しました。
+      failed: 作成に失敗しました。
+    update:
+      success: 更新に成功しました。
+      failed: 更新に失敗しました。
+    duplicate:
+      success: 複製に成功しました。
+      failed: 複製に失敗しました。
+    delete:
+      success: 削除しました。
+      failed: 削除に失敗しました。
+      confirm: 削除いたしますが、よろしいですか？
+    processing:
+      success: 処理に成功しました。
+      failed: 処理に失敗しました。
+    empty: 該当する項目を選択してください。
+    two_factor_auth:
+      failed: 認証コードが異なります。正しいコードを入力してください

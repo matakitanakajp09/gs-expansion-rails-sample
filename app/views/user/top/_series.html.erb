@@ -1,0 +1,26 @@
+<div id="top-series" class="container px-2 py-3 my-3">
+  <div class="d-flex justify-content-between align-items-center">
+    <div><h2 class="fs-3 fw-bold"><%= title %></h2></div>
+    <a href="<%= path %>" target="_blank" class="top-more-link">
+      <p class="pe-none"><%= "#{title}を見る" %></p>
+      <span class="top-more-btn">
+        <!-- app/helpers/application_helper.rbに定義しているヘルパーを呼び出す -->
+        <%= embedded_svg("arrow-right.svg") %>
+      </span>
+    </a>
+  </div>
+  <div class="top-series">
+    <div class="container top-series-slider">
+      <% @series.each_with_index do |series, i| %>
+        <div>
+          <%= link_to "/", 'data-turbolinks': true, target: "_blank" do %>
+            <picture class="w-100">
+              <source srcset="<%= "https://pub-d8167d0244bc47c6a3b1a2877c5b6a2e.r2.dev/#{series&.thumbnail_blob&.key}" %>">
+              <img decoding="async" src="<%= "https://pub-d8167d0244bc47c6a3b1a2877c5b6a2e.r2.dev/#{series&.thumbnail_blob&.key}" %>" alt="" class="w-100">
+            </picture>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

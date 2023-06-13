@@ -1,0 +1,40 @@
+version: '3.9'
+services:
+  db:
+    container_name: gs_expansion_rails_sample_db
+    image: postgres
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_HOST=db
+    volumes:
+      - dbdata:/lib/postgresql/data
+    tty: true
+  web:
+    container_name: gs_expansion_rails_sample_web
+    build: ./rails
+    tty: true
+    stdin_open: true
+    volumes:
+      - ../:/workspace
+      - bundle_path:/bundle
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_HOST=db
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      - db
+      - redis
+  redis:
+    container_name: gs_expansion_rails_sample_redis
+    image: redis:6.2.5-alpine
+    volumes:
+      - "../.docker/redis/volums:/data"
+volumes:
+  bundle_path:
+  dbdata:
+    driver: local

@@ -1,0 +1,12 @@
+//= link_tree ../images
+//= link_tree ../builds
+//= link controllers/add_fragment_controller.js
+//= link controllers/application.js
+ //= link controllers/select_controller.js
+//= link controllers/change_fragment_controller.js
+//= link controllers/editable_controller.js
+//= link controllers/format_controller.js
+//= link controllers/hello_controller.js
+//= link controllers/index.js
+//= link actiontext.js
+//= link trix.css

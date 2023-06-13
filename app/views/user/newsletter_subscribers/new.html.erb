@@ -1,0 +1,24 @@
+<main id="kiji-main">
+  <div class="container max-width-980">
+    <div class="article-main">
+      <div class="article-main-content">
+        <% flash.each do |key, value| %>
+          <div class="alert alert-<%= key %>">
+            <%= value %>
+          </div>
+        <% end %>
+        <h3 class="mb-5">ニュースレーターを受け取る</h3>
+        <div class="row justify-content-center">
+          <div class="col-lg-6 mb-3">
+            <div class="subscribe-container">
+              <%= form_with model: [:user, @newsletter_subscriber], url: "/newsletter_subscribers", local: true, method: :post, class: "subscribe-container-form" do |f| %>
+                <%= f.text_field :email, autofocus: true, type: "email", class: "form-control", placeholder: "メールアドレスを入力..." %>
+                <%= f.submit t("buttons.user.subscribe") %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

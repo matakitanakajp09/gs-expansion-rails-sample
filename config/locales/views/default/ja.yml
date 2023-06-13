@@ -1,0 +1,31 @@
+ja:
+  service:
+    name: MyCMS
+    contact: contact@mycms.sample
+    privacy: プライバシーポリシー
+    terms: 利用規約
+    about: 私たちについて
+    desc: |
+      CMSサンプル
+  buttons:
+    submit: 送信
+    back: 戻る
+    save: 保存
+    create: 作成
+    edit: 編集
+    preview: プレビュー
+    publish: 公開
+    draft: 下書き保存
+    subscribe: 購読
+    unsubscribe: 解約
+    user:
+      subscribe: 登録する
+  breadcrumb:
+    index: リスト
+    show: 詳細
+    edit: 編集
+    new: 作成
+  time:
+    formats:
+      default: "%Y.%m.%d"
+      article_show: "%Y/%m/%d %H:%m"

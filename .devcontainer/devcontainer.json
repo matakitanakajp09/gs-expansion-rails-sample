@@ -1,0 +1,83 @@
+{
+  "name": "gs-expansion-rails-sample",
+  "dockerComposeFile": [
+    "./docker-compose.yml"
+  ],
+  "service": "web",
+  "workspaceFolder": "/workspace",
+  "runServices": [
+    "web",
+    "redis",
+    "db"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-ceintl.vscode-language-pack-ja",
+        "eamodio.gitlens",
+        "wingrunr21.vscode-ruby",
+        "mosapride.zenkaku",
+        "misogi.ruby-rubocop",
+        "emeraldwalk.runonsave",
+        "usernamehw.errorlens",
+        "natqe.reload",
+        "spywhere.guides",
+        "coenraads.bracket-pair-colorizer",
+        "oderwat.indent-rainbow",
+        "karunamurti.haml",
+        "kaiwood.endwise",
+        "Cjay.ruby-and-rails-snippets",
+        "rebornix.Ruby",
+        "castwide.solargraph",
+        "elia.erb-formatter",
+        "redhat.vscode-yaml",
+        "jemmyw.rails-fast-nav",
+        "aki77.rails-db-schema",
+        "hridoy.rails-snippets",
+        "kaiwood.endwise",
+        "VisualStudioExptTeam.vscodeintellicode",
+        "esbenp.prettier-vscode"
+      ],
+      "settings": {
+        "[ruby]": {
+          "editor.insertSpaces": true,
+          "editor.tabSize": 2,
+          "editor.formatOnSave": true
+        },
+        "gitlens.codeLens.authors.command": false,
+        "ruby.rubocop.executePath": "/usr/local/bundle/bin/",
+        "ruby.rubocop.onSave": true,
+        "ruby.rubocop.configFilePath": ".rubocop.yml",
+        "editor.renderWhitespace": "all",
+        "editor.renderControlCharacters": true,
+        "files.trimTrailingWhitespace": true,
+        "files.trimFinalNewlines": true,
+        "files.insertFinalNewline": true,
+        "editor.tabSize": 2,
+        "emeraldwalk.runonsave": {
+          "commands": [
+            {
+              "match": "config/routes.rb",
+              "cmd": "bundle exec annotate --routes --pr bottom"
+            },
+            {
+              "match": "config/routes/.+rb",
+              "cmd": "bundle exec annotate --routes --pr bottom"
+            },
+            {
+              "match": "config/routes/user/.+rb",
+              "cmd": "bundle exec annotate --routes --pr bottom"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "postCreateCommand": "bundle install --path=/bundle",
+  "forwardPorts": [
+    3000,
+    3306,
+    6379
+  ]
+  // "postCreateCommand": "bundle install --path=/bundle && yarn && bundle exec rake db:create && bundle exec rake db:migrate"
+}

@@ -1,0 +1,69 @@
+<div class="series-detail-container">
+  <div class="series-detail-container-image">
+    <picture class="w-100 Image background-image">
+      <img decoding="async" src="<%= "https://pub-d8167d0244bc47c6a3b1a2877c5b6a2e.r2.dev/#{@series&.thumbnail_blob&.key}" %>" alt="" class="w-100">
+    </picture>
+    <div class="series-detail-container-image-gradation"></div>
+  </div>
+  <div class="series-detail-container-main-image">
+    <picture class="w-100 Image">
+      <source srcset="<%= "https://pub-d8167d0244bc47c6a3b1a2877c5b6a2e.r2.dev/#{@series&.thumbnail_blob&.key}" %>">
+      <img decoding="async" src="<%= "https://pub-d8167d0244bc47c6a3b1a2877c5b6a2e.r2.dev/#{@series&.thumbnail_blob&.key}" %>" alt="" class="w-100">
+    </picture>
+  </div>
+  <div class="series-detail-container-contents">
+    <div class="series-detail-container-contents-introduction">
+      <div class="series-detail-container-contents-introduction-title">
+        <h2><%= @series&.title %></h2>
+      </div>
+      <div class="series-detail-container-contents-introduction-subtitle">
+        <p><%= @series&.subtitle %></p>
+      </div>
+    </div>
+    <div>
+      <div class="series-container-articles-contents-list">
+        <ul class="series-container-articles-contents-list-article">
+          <% @series&.articles.each do |article| %>
+            <li>
+              <%= link_to article_path(id: article&.id), class: "series-container-articles-contents-list-article-item" do %>
+                <div class="series-container-articles-contents-list-article-item-image">
+                  <picture class="w-100 Image">
+                    <source srcset="<%= "https://article-image-ix.nikkei.com/https%3A%2F%2Fimgix-proxy.n8s.jp%2FDSXZQO3392145025052023000000-2.jpg?ixlib=js-3.8.0&w=638&h=398&auto=format%2Ccompress&fit=crop&bg=FFFFFF&s=42c85bbbb9d3daeef0675be6277c602e" %>">
+                    <img decoding="async" src="<%= "https://article-image-ix.nikkei.com/https%3A%2F%2Fimgix-proxy.n8s.jp%2FDSXZQO3392145025052023000000-2.jpg?ixlib=js-3.8.0&w=638&h=398&auto=format%2Ccompress&fit=crop&bg=FFFFFF&s=42c85bbbb9d3daeef0675be6277c602e" %>" alt="" class="w-100">
+                  </picture>
+                </div>
+                <div class="series-container-articles-contents-list-article-item-caption">
+                  <h3 class="series-container-articles-contents-list-article-item-caption-title"><%= article&.title %></h3>
+                  <div class="article-status">
+                    <span><%= l(article&.created_at, format: :default) %></span>
+                  </div>
+                </div>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="series-detail-container-footer">
+    <div class="footer-breadcrumb">
+      <ul class="breadcrumb">
+        <li>
+          <%= link_to user_top_path do %>
+            <%= t ".breadcrumb.top" %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to user_series_index_path do %>
+            連載
+          <% end %>
+        </li>
+        <li>
+          <%= link_to user_series_path do %>
+            <%= @series&.title %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

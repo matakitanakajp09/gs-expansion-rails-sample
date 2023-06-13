@@ -1,0 +1,27 @@
+<div class="sw-main-body-table table-responsive">
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>名前</th>
+        <th>作成日</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @categories.each do |category| %>
+        <tr>
+          <td class="rowlink">
+            <%= link_to admin_category_path(id: category&.id) do %>
+            <% end %>
+          </td>
+          <td style="min-width: 100px;">
+            <%= category&.name %>
+          </td>
+          <td style="min-width: 150px;">
+            <%= category&.created_at %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

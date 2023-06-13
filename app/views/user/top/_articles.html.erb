@@ -1,0 +1,49 @@
+<div class="container px-2 py-3 my-3">
+  <div class="d-flex justify-content-between align-items-center">
+    <div><h2 class="fs-3 fw-bold"><%= title %></h2></div>
+    <a href="<%= path %>" target="_blank" class="top-more-link">
+      <p class="pe-none"><%= "#{title}を見る" %></p>
+      <span class="top-more-btn">
+        <!-- app/helpers/application_helper.rbに定義しているヘルパーを呼び出す -->
+        <%= embedded_svg("arrow-right.svg") %>
+      </span>
+    </a>
+  </div>
+  <div class="top-articles">
+    <div class="top-articles-left">
+      <%= link_to article_path(id: articles[0]&.id) do %>
+        <picture class="w-100 Image">
+          <source srcset="<%= "https://article-image-ix.nikkei.com/https%3A%2F%2Fimgix-proxy.n8s.jp%2FDSXZQO3392145025052023000000-2.jpg?ixlib=js-3.8.0&w=638&h=398&auto=format%2Ccompress&fit=crop&bg=FFFFFF&s=42c85bbbb9d3daeef0675be6277c602e" %>">
+          <img decoding="async" src="<%= "https://article-image-ix.nikkei.com/https%3A%2F%2Fimgix-proxy.n8s.jp%2FDSXZQO3392145025052023000000-2.jpg?ixlib=js-3.8.0&w=638&h=398&auto=format%2Ccompress&fit=crop&bg=FFFFFF&s=42c85bbbb9d3daeef0675be6277c602e" %>" alt="" class="w-100">
+        </picture>
+        <p class="subtitle"><%= articles[0]&.subtitle %></p>
+        <h3 class="fs-5 fw-bold"><%= articles[0]&.title %></h3>
+        <div class="article-status">
+          <span><%= l(articles[0]&.created_at, format: :default) %></span>
+        </div>
+      <% end %>
+    </div>
+    <div class="top-articles-right">
+      <% articles[1..].each do |article| %>
+        <div class="top-articles-right-article">
+          <%= link_to article_path(id: article&.id) do %>
+            <div class="top-articles-right-article-content">
+              <div class="top-articles-right-article-content-image">
+                <picture class="w-100 Image">
+                  <source srcset="<%= "https://article-image-ix.nikkei.com/https%3A%2F%2Fimgix-proxy.n8s.jp%2FDSXZQO3392145025052023000000-2.jpg?ixlib=js-3.8.0&w=638&h=398&auto=format%2Ccompress&fit=crop&bg=FFFFFF&s=42c85bbbb9d3daeef0675be6277c602e" %>">
+                  <img decoding="async" src="<%= "https://article-image-ix.nikkei.com/https%3A%2F%2Fimgix-proxy.n8s.jp%2FDSXZQO3392145025052023000000-2.jpg?ixlib=js-3.8.0&w=638&h=398&auto=format%2Ccompress&fit=crop&bg=FFFFFF&s=42c85bbbb9d3daeef0675be6277c602e" %>" alt="" class="w-100">
+                </picture>
+              </div>
+              <div>
+                <h3 class="fs-5 fw-bold"><%= article&.title %></h3>
+                <div class="article-status">
+                  <span><%= l(article&.created_at, format: :default) %></span>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="l-side">
+  <div class="sw-main-header">
+    <div class="sw-main-header-title"><%= t "menu.title" %></div>
+  </div>
+  <div class="sw-main-body">
+    <div class="user-links">
+      <div class="sw-menu">
+        <ul class="sw-menu-link">
+          <li>
+            <%= link_to admin_articles_path(tab: "all") do %>
+              <span><%= t ".article" %></span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to admin_series_index_path do %>
+              <span><%= t ".series" %></span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to admin_tags_path(tab: "all") do %>
+              <span><%= t ".tag" %></span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to admin_authors_path do %>
+              <span><%= t ".author" %></span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to admin_categories_path do %>
+              <span><%= t ".category" %></span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to admin_pickups_path do %>
+              <span><%= t ".pickup" %></span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to admin_banners_path do %>
+              <span><%= t ".banner" %></span>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

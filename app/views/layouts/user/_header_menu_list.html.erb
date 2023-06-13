@@ -1,0 +1,29 @@
+<ul class="Header-wrapper-right-menu-list-category">
+  <li>
+    <%= link_to user_category_path(id: Category::STR_BUSINESS) do %>
+      ビジネス
+    <% end %>
+  </li>
+  <li>
+    <%= link_to user_category_path(id: Category::STR_CAREER) do %>
+      キャリア
+    <% end %>
+  </li>
+  <li>
+    <%= link_to user_category_path(id: Category::STR_TECHNOLOGY) do %>
+      テクノロジー
+    <% end %>
+  </li>
+  <li>
+    <%= link_to user_category_path(id: Category::STR_FINANCE) do %>
+      ファイナンス
+    <% end %>
+  </li>
+</ul>
+<ul class="Header-wrapper-right-menu-list-etc">
+  <li>
+    <%= link_to user_series_index_path do %>
+      連載
+    <% end %>
+  </li>
+</ul>

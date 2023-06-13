@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <title>Admin</title>
+    <meta content="width=device-width,initial-scale=1" name="viewport"/>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <!-- TODO：一旦コメントアウトしてる。コメントアウトするとエラーが消える -->
+    <!-- 正常なエラーらしい？ -->
+    <!-- https://techracho.bpsinc.jp/hachi8833/2022_06_29/112183 -->
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  </head>
+  <body>
+    <%= render partial: "layouts/admin/header" %>
+    <main id="admin">
+      <div class="l-wrapper">
+        <%= render partial: "layouts/admin/sidemenu" %>
+        <%= yield %>
+      </div>
+    </main>
+    <%= render partial: "layouts/admin/footer" %>
+  </body>
+</html>

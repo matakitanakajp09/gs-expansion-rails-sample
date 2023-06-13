@@ -1,0 +1,41 @@
+ja:
+  admin:
+    common:
+      basic:
+        title: 基本設定
+      advance:
+        title: 詳細設定
+      new:
+        title: 新規作成
+      edit_status:
+        title: ステータス変更
+      edit_order:
+        title: 順番変更
+      edit:
+        title: 編集
+      preview:
+        title: プレビュー
+    authors:
+      breadcrumb:
+        index:
+          title: 著者リスト
+        show:
+          title: 著者詳細
+      index:
+        title: 著者を管理する
+      show:
+        title: 著者の情報
+      new:
+        title: 著者の情報を作成する
+    categories:
+      breadcrumb:
+        index:
+          title: カテゴリリスト
+        show:
+          title: カテゴリ詳細
+      index:
+        title: カテゴリを管理する
+      show:
+        title: カテゴリの情報
+      new:
+        title: カテゴリの情報を作成する

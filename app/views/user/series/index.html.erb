@@ -1,0 +1,68 @@
+<div class="series-container">
+  <div class="series-container-title">
+    <h1 class="fs-3 fw-bold">連載</h1>
+  </div>
+  <div class="series-container-articles">
+    <% @series.each do |series| %>
+      <div class="series-container-articles-contents">
+        <%= link_to user_series_path(id: series&.id), class: "series-container-articles-contents-series" do %>
+          <picture class="w-100 Image">
+            <source srcset="<%= "https://pub-d8167d0244bc47c6a3b1a2877c5b6a2e.r2.dev/#{series&.thumbnail_blob&.key}" %>">
+            <img decoding="async" src="<%= "https://pub-d8167d0244bc47c6a3b1a2877c5b6a2e.r2.dev/#{series&.thumbnail_blob&.key}" %>" alt="" class="w-100">
+          </picture>
+        <% end %>
+        <div class="series-container-articles-contents-list">
+          <div class="series-container-articles-contents-list-heading">
+            <p>最新記事</p>
+            <%= link_to user_series_path(id: series&.id), class: "top-more-link" do %>
+              <p class="pe-none">もっと見る</p>
+              <span class="top-more-btn">
+                <!-- app/helpers/application_helper.rbに定義しているヘルパーを呼び出す -->
+                <%= embedded_svg("arrow-right.svg") %>
+              </span>
+            <% end %>
+          </div>
+          <ul class="series-container-articles-contents-list-article">
+            <% series&.articles.limit(3).each do |article| %>
+              <li>
+                <%= link_to article_path(id: article&.id), class: "series-container-articles-contents-list-article-item" do %>
+                  <div class="series-container-articles-contents-list-article-item-image">
+                    <picture class="w-100 Image">
+                      <source srcset="<%= "https://article-image-ix.nikkei.com/https%3A%2F%2Fimgix-proxy.n8s.jp%2FDSXZQO3392145025052023000000-2.jpg?ixlib=js-3.8.0&w=638&h=398&auto=format%2Ccompress&fit=crop&bg=FFFFFF&s=42c85bbbb9d3daeef0675be6277c602e" %>">
+                      <img decoding="async" src="<%= "https://article-image-ix.nikkei.com/https%3A%2F%2Fimgix-proxy.n8s.jp%2FDSXZQO3392145025052023000000-2.jpg?ixlib=js-3.8.0&w=638&h=398&auto=format%2Ccompress&fit=crop&bg=FFFFFF&s=42c85bbbb9d3daeef0675be6277c602e" %>" alt="" class="w-100">
+                    </picture>
+                  </div>
+                  <div class="series-container-articles-contents-list-article-item-caption">
+                    <h3 class="series-container-articles-contents-list-article-item-caption-title"><%= article&.title %></h3>
+                    <div class="article-status">
+                      <span><%= l(article&.created_at, format: :default) %></span>
+                    </div>
+                  </div>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+          <%= link_to user_series_path(id: series&.id), class: "series-container-articles-contents-list-more-btn" do %>
+            <p class="series-container-articles-contents-list-more-btn-heading">もっと見る</p>
+            <span class="series-container-articles-contents-list-more-btn-icon">
+              <!-- app/helpers/application_helper.rbに定義しているヘルパーを呼び出す -->
+              <%= embedded_svg("arrow-right.svg") %>
+            </span>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="series-container-series">
+    <% @series.each do |series| %>
+      <%= link_to user_series_path(id: series&.id),  class: "series-container-series-contents" do %>
+        <picture class="w-100 Image">
+          <source srcset="<%= "https://pub-d8167d0244bc47c6a3b1a2877c5b6a2e.r2.dev/#{series&.thumbnail_blob&.key}" %>">
+          <img decoding="async" src="<%= "https://pub-d8167d0244bc47c6a3b1a2877c5b6a2e.r2.dev/#{series&.thumbnail_blob&.key}" %>" alt="" class="w-100">
+        </picture>
+        <h2 class="series-container-series-contents-title"><%= series&.title %></h2>
+        <p class="series-container-series-contents-subtitle"><%= series&.subtitle %></p>
+      <% end %>
+    <% end %>
+  </div>
+</div>

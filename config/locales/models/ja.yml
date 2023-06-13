@@ -1,0 +1,48 @@
+ja:
+  common:
+    created_at: 作成日
+    updated_at: 更新日
+  activerecord:
+    attributes:
+      author:
+        id: ID
+        name: 著者名
+        bio: 著者情報
+      category:
+        id: ID
+        name: カテゴリ名
+    enum:
+      base_status: &base_status
+        draft: 下書き
+        archived: アーカイブ
+        trashed: ゴミ箱
+      cms_status: &cms_status
+        <<: *base_status
+        published: 公開中
+      article:
+        current_status: *cms_status
+      newsletter_status: &newsletter_status
+        <<: *base_status
+        published: 送信済み
+      newsletter:
+        current_status: *newsletter_status
+      series:
+        current_status: *cms_status
+
+      base_display_status:  &base_display_status
+        "open": 掲載中
+        "before": 掲載前
+        "after": 終了
+
+      banner:
+        open_status: *base_display_status
+      category:
+        business: ビジネス
+        career: キャリア
+        finance: ファイナンス
+        technology: テクノロジー
+      pickup:
+        open_status: *base_display_status
+
+
+    errors:

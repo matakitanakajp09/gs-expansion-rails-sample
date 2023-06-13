@@ -1,0 +1,13 @@
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+  port: 5432
+  host: localhost
+development:
+  <<: *default
+  database: gs_expansion_rails_sample_db
+  username: postgres
+  password: postgres
+  host: db
