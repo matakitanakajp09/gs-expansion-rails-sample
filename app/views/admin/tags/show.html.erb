@@ -1,0 +1,71 @@
+<div class="l-container">
+  <%= render partial: "layouts/admin/article_menu" %>
+  <div class="l-main-view">
+    <div class="sw-main-header">
+      <div class="sw-main-header-title">
+        <%= @tag&.name %>
+      </div>
+      <div class="sw-main-header-buttons">
+        <div class="sw-main-header-button">
+          <%= link_to edit_admin_tag_path, class: "btn btn-primary" do %>
+            <%= t "buttons.edit" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="sw-main-body">
+      <ul class="breadcrumb p-3">
+        <%= render partial: "admin/tags/breadcrumb/index" %>
+        <%= render partial: "admin/tags/breadcrumb/show" %>
+      </ul>
+      <div class="section">
+        <%= render :partial => "admin/flash" %>
+      </div>
+      <div class="section">
+        <h2 class="admin-title">タグ</h2>
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <div class="model-key">
+                  <%= t "activerecord.attributes.tag.id" %>
+                </div>
+                <div class="model-value">
+                  <%= @tag&.id %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <div class="model-key">
+                  <%= t "activerecord.attributes.tag.name" %>
+                </div>
+                <div class="model-value">
+                  <%= @tag&.name %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <div class="model-key">
+                  <%= t "common.created_at" %>
+                </div>
+                <div class="model-value">
+                  <%= @tag&.created_at %>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="model-key">
+                  <%= t "common.updated_at" %>
+                </div>
+                <div class="model-value">
+                  <%= @tag&.updated_at %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

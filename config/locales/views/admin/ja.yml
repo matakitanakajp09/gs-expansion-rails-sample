@@ -39,3 +39,15 @@ ja:
         title: カテゴリの情報
       new:
         title: カテゴリの情報を作成する
+    tags:
+      breadcrumb:
+        index:
+          title: タグリスト
+        show:
+          title: タグ詳細
+      index:
+        title: タグを管理する
+      show:
+        title: タグの情報
+      new:
+        title: タグの情報を作成する

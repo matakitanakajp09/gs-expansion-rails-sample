@@ -1,0 +1,27 @@
+<div class="sw-main-body-table table-responsive">
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>名前</th>
+        <th>作成日</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tags.each do |tag| %>
+        <tr>
+          <td class="rowlink">
+            <%= link_to admin_tag_path(id: tag&.id) do %>
+            <% end %>
+          </td>
+          <td style="min-width: 100px;">
+            <%= tag&.name %>
+          </td>
+          <td style="min-width: 150px;">
+            <%= tag&.created_at %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
