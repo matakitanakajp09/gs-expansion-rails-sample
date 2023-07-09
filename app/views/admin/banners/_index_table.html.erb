@@ -1,0 +1,44 @@
+<div class="sw-main-body-table table-responsive">
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th><%= t "activerecord.attributes.banner.name" %></th>
+        <th><%= t "activerecord.attributes.banner.open_status" %></th>
+        <th><%= t "activerecord.attributes.banner.started_at" %></th>
+        <th><%= t "activerecord.attributes.banner.expired_at" %></th>
+        <th><%= t "activerecord.attributes.banner.thumbnail" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @banners.each do |banner| %>
+        <tr>
+          <td class="rowlink">
+            <%= link_to admin_banner_path(id: banner&.id) do %>
+            <% end %>
+          </td>
+          <td style="min-width: 100px;">
+            <%= banner&.name %>
+          </td>
+          <td style="min-width: 125px;">
+            <div class="status-mark <%= banner&.display_css_class %>"></div>
+            <%= t "activerecord.enum.banner.open_status.#{banner&.display_css_class}" %>
+          </td>
+          <td style="min-width: 150px;">
+            <%= banner&.started_at %>
+          </td>
+          <td style="min-width: 150px;">
+            <%= banner&.expired_at %>
+          </td>
+          <td style="width: 150px; min-width: 150px; max-height: 75px; padding: 12px;">
+            <% if banner&.thumbnail.attached? %>
+              <%= image_tag(banner&.thumbnail) %>
+            <% else %>
+              画像なし
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

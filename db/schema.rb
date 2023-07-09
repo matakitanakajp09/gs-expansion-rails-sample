@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_08_160622) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_09_033135) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -159,8 +159,28 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_08_160622) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "banners", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name", null: false, comment: "バナー名"
+    t.datetime "started_at", comment: "掲載開始日"
+    t.datetime "expired_at", comment: "掲載終了日"
+    t.integer "position", default: 100, comment: "順番"
+    t.string "url", comment: "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "categories", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name", null: false, comment: "カテゴリ名"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pickups", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name", null: false, comment: "ピックアップ名"
+    t.datetime "started_at", comment: "掲載開始日"
+    t.datetime "expired_at", comment: "掲載終了日"
+    t.integer "position", default: 100, comment: "順番"
+    t.string "url", comment: "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

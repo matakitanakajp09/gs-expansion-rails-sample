@@ -1,0 +1,53 @@
+<%= form_with model: [:admin, @banner], local: true do |f| %>
+  <div class="section">
+    <div class="d-flex justify-content-between border-bottom pb-3">
+      <div></div>
+      <div class="d-flex">
+        <div>
+          <button class="btn btn-primary"><%= t "buttons.save" %></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="card border-0">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12 mt-3">
+            <%= f.label :name, class: "mb-1 form-label text-small text-muted" do %>
+              <%= t "activerecord.attributes.banner.name" %>
+            <% end %>
+            <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 mt-3">
+            <%= f.label :started_at, class: "mb-1 form-label text-small text-muted" do %>
+              <%= t "activerecord.attributes.banner.started_at" %>
+            <% end %>
+            <%= f.datetime_field :started_at, autofocus: true, class: "form-control" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 mt-3">
+            <%= f.label :expired_at, class: "mb-1 form-label text-small text-muted" do %>
+              <%= t "activerecord.attributes.banner.expired_at" %>
+            <% end %>
+            <%= f.datetime_field :expired_at, autofocus: true, class: "form-control" %>
+          </div>
+        </div>
+        <div class="row mb-5">
+          <div class="col-md-6 mt-3">
+            <div class="mb-1 form-label text-small text-muted">
+              <%= t "activerecord.attributes.banner.thumbnail" %>
+            </div>
+            <%= f.file_field :thumbnail, class: "form-control #{'is-invalid' if f.object.errors.full_messages_for(:thumbnail)[0].present? }" %>
+            <div class="text-danger">
+              <%= @banner.errors.full_messages_for(:thumbnail)[0] %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

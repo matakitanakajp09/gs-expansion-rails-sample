@@ -1,0 +1,120 @@
+<div class="l-container">
+  <%= render partial: "layouts/admin/article_menu" %>
+  <div class="l-main-view">
+    <div class="sw-main-header">
+      <div class="sw-main-header-title">
+        <%= @banner&.name %>
+      </div>
+      <div class="sw-main-header-buttons">
+        <div class="sw-main-header-button">
+          <%= link_to edit_admin_banner_path, class: "btn btn-primary" do %>
+            <%= t "buttons.edit" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="sw-main-body">
+      <ul class="breadcrumb p-3">
+        <%= render partial: "admin/banners/breadcrumb/index" %>
+        <%= render partial: "admin/banners/breadcrumb/show" %>
+      </ul>
+      <div class="section">
+        <%= render :partial => "admin/flash" %>
+      </div>
+      <div class="section">
+        <h2 class="admin-title">イチオシ</h2>
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <div class="model-key">
+                  <%= t "activerecord.attributes.banner.id" %>
+                </div>
+                <div class="model-value">
+                  <%= @banner&.id %>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="model-key">
+                  <%= t "activerecord.attributes.banner.open_status" %>
+                </div>
+                <div class="model-value">
+                  <div class="status-mark <%= @banner&.display_css_class %>"></div>
+                  <%= t "activerecord.enum.banner.open_status.#{@banner&.display_css_class}" %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <div class="model-key">
+                  <%= t "activerecord.attributes.banner.name" %>
+                </div>
+                <div class="model-value">
+                  <%= @banner&.name %>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="model-key">
+                  <%= t "activerecord.attributes.banner.position" %>
+                </div>
+                <div class="model-value">
+                  <%= @banner&.position %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <div class="model-key">
+                  <%= t "activerecord.attributes.banner.thumbnail" %>
+                </div>
+                <div class="model-value w-100">
+                  <% if @banner&.thumbnail.attached? %>
+                    <%= image_tag(@banner&.thumbnail, class: "w-50") %>
+                  <% else %>
+                    画像なし
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <div class="model-key">
+                  <%= t "activerecord.attributes.banner.started_at" %>
+                </div>
+                <div class="model-value">
+                  <%= @banner&.started_at %>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="model-key">
+                  <%= t "activerecord.attributes.banner.expired_at" %>
+                </div>
+                <div class="model-value">
+                  <%= @banner&.expired_at %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <div class="model-key">
+                  <%= t "common.created_at" %>
+                </div>
+                <div class="model-value">
+                  <%= @banner&.created_at %>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="model-key">
+                  <%= t "common.updated_at" %>
+                </div>
+                <div class="model-value">
+                  <%= @banner&.updated_at %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,121 @@
+<div class="l-container">
+  <%= render partial: "layouts/admin/article_menu" %>
+  <div class="l-main-view">
+    <div class="sw-main-header">
+      <div class="sw-main-header-title">
+        <%= @pickup&.name %>
+      </div>
+      <div class="sw-main-header-buttons">
+        <div class="sw-main-header-button">
+          <%= link_to edit_admin_pickup_path, class: "btn btn-primary" do %>
+            <%= t "buttons.edit" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="sw-main-body">
+      <ul class="breadcrumb p-3">
+        <%= render partial: "admin/pickups/breadcrumb/index" %>
+        <%= render partial: "admin/pickups/breadcrumb/show" %>
+      </ul>
+      <div class="section">
+        <%= render :partial => "admin/flash" %>
+      </div>
+      <div class="section">
+        <h2 class="admin-title">イチオシ</h2>
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <div class="model-key">
+                  <%= t "activerecord.attributes.pickup.id" %>
+                </div>
+                <div class="model-value">
+                  <%= @pickup&.id %>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="model-key">
+                  <%= t "activerecord.attributes.pickup.open_status" %>
+                </div>
+                <div class="model-value">
+                  <div class="status-mark <%= @pickup&.display_css_class %>"></div>
+                  <%= t "activerecord.enum.pickup.open_status.#{@pickup&.display_css_class}" %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <div class="model-key">
+                  <%= t "activerecord.attributes.pickup.name" %>
+                </div>
+                <div class="model-value">
+                  <%= @pickup&.name %>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="model-key">
+                  <%= t "activerecord.attributes.pickup.position" %>
+                </div>
+                <div class="model-value">
+                  <%= @pickup&.position %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <div class="model-key">
+                  <%= t "activerecord.attributes.pickup.thumbnail" %>
+                </div>
+                <div class="model-value w-100">
+                  <div class="model-value w-100">
+                    <% if @pickup&.thumbnail.attached? %>
+                      <%= image_tag(@pickup&.thumbnail, class: "w-50") %>
+                    <% else %>
+                      画像なし
+                    <% end %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <div class="model-key">
+                  <%= t "activerecord.attributes.pickup.started_at" %>
+                </div>
+                <div class="model-value">
+                  <%= @pickup&.started_at %>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="model-key">
+                  <%= t "activerecord.attributes.pickup.expired_at" %>
+                </div>
+                <div class="model-value">
+                  <%= @pickup&.expired_at %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <div class="model-key">
+                  <%= t "common.created_at" %>
+                </div>
+                <div class="model-value">
+                  <%= @pickup&.created_at %>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="model-key">
+                  <%= t "common.updated_at" %>
+                </div>
+                <div class="model-value">
+                  <%= @pickup&.updated_at %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

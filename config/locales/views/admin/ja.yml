@@ -23,6 +23,18 @@ ja:
         title: 著者の情報
       new:
         title: 著者の情報を作成する
+    banners:
+      breadcrumb:
+        index:
+          title: バナーリスト
+        show:
+          title: バナー詳細
+      index:
+        title: バナーを管理する
+      show:
+        title: バナーの情報
+      new:
+        title: バナーの情報を作成する
     common:
       basic:
         title: 基本設定
@@ -50,6 +62,18 @@ ja:
         title: カテゴリの情報
       new:
         title: カテゴリの情報を作成する
+    pickups:
+      breadcrumb:
+        index:
+          title: イチオシリスト
+        show:
+          title: イチオシ詳細
+      index:
+        title: イチオシを管理する
+      show:
+        title: イチオシの情報
+      new:
+        title: イチオシの情報を作成する
     tags:
       breadcrumb:
         index:
@@ -62,3 +86,13 @@ ja:
         title: タグの情報
       new:
         title: タグの情報を作成する
+    series:
+      breadcrumb:
+        index:
+          title: 連載リスト
+        reserving_publish:
+          title: 公開予約する
+      index:
+        title: 連載リスト
+      reserving_publish:
+        title: 公開予約設定

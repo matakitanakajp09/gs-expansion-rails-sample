@@ -23,9 +23,39 @@ ja:
         id: ID
         name: 著者名
         bio: 著者情報
+      banner:
+        id: ID
+        name: バナー名
+        thumbnail: 画像
+        started_at: 掲載開始日時
+        expired_at: 掲載終了日時
+        position: 順番
+        open_status: 公開状況
+        created_at: 作成日
+        updated_at: 更新日
       category:
         id: ID
         name: カテゴリ名
+      pickup:
+        id: ID
+        name: イチオシ名
+        thumbnail: 画像
+        started_at: 掲載開始日時
+        expired_at: 掲載終了日時
+        position: 順番
+        open_status: 公開状況
+        created_at: 作成日
+        updated_at: 更新日
+      tag:
+        id: ID
+        name: タグ名
+      series:
+        id: ID
+        title: タイトル
+        subtitle: 小タイトル
+        current_status: ステータス
+        scheduled_published_at: 公開予約時間
+        published_at: 公開時間
     enum:
       base_status: &base_status
         draft: 下書き
