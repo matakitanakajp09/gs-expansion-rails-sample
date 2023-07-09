@@ -1,7 +1,51 @@
 <main>
-  <div class="container px-2 py-3 my-3">
-    <div class="d-flex justify-content-between align-items-center">
-      <div><h2 class="fs-3 fw-bold">Hello Rails World!</h2></div>
+  <div class="top-heading">
+    <div class="top-heading-container">
+      <nav class="top-heading-nav">
+        <%= render :partial => "layouts/user/header_menu_list" %>
+      </nav>
+      <div id="top-pickup-slider" class="slider">
+        <% @pickups.each do |pickup| %>
+          <div>
+            <%= link_to "/", 'data-turbolinks': false do %>
+              <div class="top-pickup-slider-content">
+                <div class="top-pickup-slider-content-left">
+                  <picture class="w-100">
+                    <source srcset="<%= url_for(pickup&.thumbnail) %>">
+                    <%= image_tag(pickup&.thumbnail, class: "w-100", alt: "イチオシ画像", decoding: "async") %>
+                  </picture>
+                </div>
+                <div class="top-pickup-slider-content-right">
+                  <p class="top-pickup-slider-content-right-subtitle">今日のイチオシ！</p>
+                  <h1 class="top-pickup-slider-content-right-title">
+                    <%= pickup&.name %>
+                  </h1>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
+  <div style="margin-top: 32px">
+    <div id="top-banner-slider" class="container top-banner-slider">
+      <% @banners.each do |banner| %>
+        <div>
+          <div class="top-banner-slider-content">
+            <%= link_to "/", 'data-turbolinks': true, target: "_blank" do %>
+              <source srcset="<%= url_for(banner&.thumbnail) %>">
+              <%= image_tag(banner&.thumbnail, class: "w-100", alt: "イチオシ画像", decoding: "async") %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <%= render :partial => "user/top/latest", :locals => { title: "新着記事", path: "/latest" } %>
+  <%= render :partial => "user/top/series", :locals => { title: "連載", path: "/series" } %>
+  <%= render :partial => "user/top/articles", :locals => { title: "ビジネス", path: "/category/business", articles: @business } %>
+  <%= render :partial => "user/top/articles", :locals => { title: "キャリア", path: "/category/career", articles: @career } %>
+  <%= render :partial => "user/top/articles", :locals => { title: "テクノロジー", path: "/category/technology", articles: @technology  } %>
+  <%= render :partial => "user/top/articles", :locals => { title: "ファイナンス", path: "/category/finance", articles: @finance } %>
 </main>
