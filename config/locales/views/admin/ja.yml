@@ -1,5 +1,28 @@
 ja:
   admin:
+    articles:
+      breadcrumb:
+        index:
+          title: 記事リスト
+        show:
+          title: 記事
+        edit:
+          title: 編集する
+      index:
+      new:
+        title: 記事を新規作成する
+    authors:
+      breadcrumb:
+        index:
+          title: 著者リスト
+        show:
+          title: 著者詳細
+      index:
+        title: 著者を管理する
+      show:
+        title: 著者の情報
+      new:
+        title: 著者の情報を作成する
     common:
       basic:
         title: 基本設定
@@ -15,18 +38,6 @@ ja:
         title: 編集
       preview:
         title: プレビュー
-    authors:
-      breadcrumb:
-        index:
-          title: 著者リスト
-        show:
-          title: 著者詳細
-      index:
-        title: 著者を管理する
-      show:
-        title: 著者の情報
-      new:
-        title: 著者の情報を作成する
     categories:
       breadcrumb:
         index:

@@ -1,0 +1,41 @@
+<div class="sw-main-body-table table-responsive">
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>ステータス</th>
+        <th>タイトル</th>
+        <th>公開日</th>
+        <th>サムネイル</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% unless @series.blank? %>
+        <% @series.each do |series| %>
+          <tr>
+            <td class="rowlink">
+              <%= link_to admin_series_path(id: series&.id) do %><% end %>
+            </td>
+            <td style="min-width: 125px;">
+              <div class="status-mark <%= series&.current_status %>"></div>
+              <%= t "activerecord.enum.article.current_status.#{series&.current_status}" %>
+            </td>
+            <td style="min-width: 450px;">
+              <%= series&.title %>
+            </td>
+            <td style="min-width: 150px;">
+              <%= series&.published_at %>
+            </td>
+            <td style="width: 150px; min-width: 150px; max-height: 75px; padding: 12px;">
+              <% if series&.thumbnail.attached? %>
+                <%= image_tag(series&.thumbnail) %>
+              <% else %>
+                画像なし
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

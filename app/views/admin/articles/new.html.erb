@@ -1,0 +1,20 @@
+<div class="l-container">
+  <%= render partial: "layouts/admin/article_menu" %>
+  <div class="l-main-view">
+    <div class="sw-main-header">
+      <div class="sw-main-header-title">
+        <%= t ".title" %>
+      </div>
+    </div>
+    <div class="sw-main-body">
+      <ul class="breadcrumb p-3">
+        <%= render partial: "admin/articles/breadcrumb/index" %>
+        <%= render partial: "admin/articles/breadcrumb/new" %>
+      </ul>
+      <div class="section">
+        <%= render :partial => "admin/flash" %>
+      </div>
+      <%= render :partial => "admin/articles/form_attributes" %>
+    </div>
+  </div>
+</div>

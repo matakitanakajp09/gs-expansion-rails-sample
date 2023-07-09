@@ -12,6 +12,12 @@ module Workspace
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
+    # active_record
+    # config.active_storage.routes_prefix = "/attachments"
+    # config.active_storage.draw_routes = false
+    # config.active_storage.content_types_to_serve_as_binary = %w[text/html text/plain application/postscript
+    #                                                             application/x-shockwave-flash text/xml application/xml application/xhtml+xml application/mathml+xml text/cache-manifest]
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

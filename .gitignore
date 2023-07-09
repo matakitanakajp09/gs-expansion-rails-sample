@@ -64,3 +64,5 @@ node_modules/
 /config/database.yml
 
 /node_modules
+
+/storage/

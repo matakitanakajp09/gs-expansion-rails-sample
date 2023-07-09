@@ -4,6 +4,21 @@ ja:
     updated_at: 更新日
   activerecord:
     attributes:
+      article:
+        id: ID
+        title: タイトル
+        subtitle: 小タイトル
+        published_at: 公開日
+        thumbnail: 画像
+        content: 内容
+        category_type: カテゴリ
+        current_status: ステータス
+        author: 著者
+        article_tag: タグ
+        article_series: 連載
+        views:
+          tab:
+            all: 記事を管理する
       author:
         id: ID
         name: 著者名
