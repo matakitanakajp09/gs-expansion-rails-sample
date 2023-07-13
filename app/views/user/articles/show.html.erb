@@ -1,0 +1,43 @@
+<main id="kiji-main">
+  <div class="container max-width-980">
+    <div class="article-main">
+      <h1><%= @article&.title %></h1>
+      <div class="article-main-author">
+        <div class="article-main-author-img flex-center">
+          <div class="flex-center">
+            <%= @article&.author&.name[0] %>
+          </div>
+        </div>
+        <div class="article-main-author-box">
+          <div class="article-main-author-box-name">
+            <%= @article&.author&.name %>
+          </div>
+          <div class="article-main-author-box-note">
+            <time datetime="<%= @article&.published_at %>">
+              <%= l(@article&.published_at, format: :article_show) if @article&.published_at.present? %>
+            </time>
+          </div>
+        </div>
+      </div>
+      <div class="article-main-thumbnail">
+      </div>
+      <div class="article-main-content mt-3">
+        <%= @article&.content %>
+      </div>
+    </div>
+    <div class="footer-breadcrumb">
+      <ul class="breadcrumb">
+        <li>
+          <%= link_to user_top_path do %>
+            <%= t ".breadcrumb.top" %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to article_path(id: @article[:id]) do %>
+            <%= @article&.title %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</main>
