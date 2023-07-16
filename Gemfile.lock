@@ -464,6 +464,7 @@ GEM
     ssrf_filter (1.0.7)
     stimulus-rails (1.0.4)
       railties (>= 6.0.0)
+    stripe (8.6.0)
     strscan (3.0.3)
     sucker_punch (3.0.1)
       concurrent-ruby (~> 1.0)
@@ -560,6 +561,7 @@ DEPENDENCIES
   spring
   sprockets-rails
   stimulus-rails
+  stripe
   sucker_punch
   turbo-rails
   tzinfo-data
