@@ -1,0 +1,48 @@
+<main>
+  <div class="">
+    <div class="row">
+      <div class="col">
+        <div class="py-5 d-flex justify-content-center align-items-center">
+          MyCMSの新規登録画面
+        </div>
+      </div>
+      <div class="col">
+        <div class="py-5 d-flex justify-content-center align-items-center">
+          <div class="w-75 mx-3">
+            <h1 class="text-center fw-bold">管理者として登録する</h1>
+            <div class="w-100 mx-auto mt-5">
+              <%= form_tag(finish_admin_registration_path) do |f| %>
+                <input type="hidden" name="confirmation_token" value="<%= params[:confirmation_token] %>">
+                <div class="mt-4">
+                  <label for="full_name" class="mb-1 form-label text-small text-muted">名前</label>
+                  <input type="text" class="form-control" id="full_name" placeholder="タナカユウキ" name="full_name">
+                </div>
+                <div class="mt-4">
+                  <label for="password" class="mb-1 form-label text-small text-muted">パスワード</label>
+                  <input type="password" class="form-control" id="password" name="password">
+                </div>
+                <div class="mt-4">
+                  <label for="password_confirmation" class="mb-1 form-label text-small text-muted">パスワード確認</label>
+                  <input type="password" class="form-control" id="password_confirmation" name="password_confirmation">
+                </div>
+                <div class="mt-4">
+                  <button class="btn btn-dark w-100">
+                    管理者として登録する
+                  </button>
+                </div>
+              <% end %>
+              <ul class="mt-4 d-flex">
+                <li class="me-2 text-muted">
+                  <a href="/terms">利用規約</a>
+                </li>
+                <li class="me-2 text-muted">
+                  <a href="/privacy">プライバシーポリシー</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

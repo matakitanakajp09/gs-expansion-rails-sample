@@ -96,3 +96,9 @@ ja:
         title: 連載リスト
       reserving_publish:
         title: 公開予約設定
+    settings:
+      breadcrumb:
+        index:
+          title: アカウント設定
+      index:
+        title: アカウント設定

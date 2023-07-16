@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   devise_for :admin_registrations, class_name: "Admin::Registration", path: :admin, controllers: {
     confirmations: "admin/registrations"
   }
-  devise_scope :registration do
-    post "/registration/finish", to: "admin/registrations#finish", as: "finish_admin_registration"
+  devise_scope :admin_registration do
+    post "admin/registration/finish", to: "admin/registrations#finish", as: "finish_admin_registration"
   end
   devise_for :admins
 end

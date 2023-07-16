@@ -107,7 +107,7 @@ gem "redis-objects"                         # modelと簡単に連携できる
 group :development, :test do
   gem "better_errors"                       # ↑ エラー画面をきれいにする
   gem "binding_of_caller"                   # ↓ セットで入れる、エラー画面で変数をチェックできる
-  gem "letter_opener_web", "~> 1.0"         # メールをブラウザで確認できる
+  gem "letter_opener_web", "~> 2.0"         # メールをブラウザで確認できる
   # モデル構造を書き出せるすごいやつ
   gem "annotate", github: "dabit/annotate_models", branch: "rails-7"
   gem "pry-rails"

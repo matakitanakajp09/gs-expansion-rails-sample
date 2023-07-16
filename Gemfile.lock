@@ -84,8 +84,8 @@ GEM
       activerecord (>= 6.0, < 7.1)
     acts_as_list (1.0.4)
       activerecord (>= 4.2)
-    addressable (2.8.0)
-      public_suffix (>= 2.0.2, < 5.0)
+    addressable (2.8.4)
+      public_suffix (>= 2.0.2, < 6.0)
     ast (2.4.2)
     aws-eventstream (1.2.0)
     aws-partitions (1.705.0)
@@ -237,14 +237,15 @@ GEM
       rexml
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
-    launchy (2.5.0)
-      addressable (~> 2.7)
+    launchy (2.5.2)
+      addressable (~> 2.8)
     letter_opener (1.8.1)
       launchy (>= 2.2, < 3)
-    letter_opener_web (1.4.1)
-      actionmailer (>= 3.2)
-      letter_opener (~> 1.0)
-      railties (>= 3.2)
+    letter_opener_web (2.0.0)
+      actionmailer (>= 5.2)
+      letter_opener (~> 1.7)
+      railties (>= 5.2)
+      rexml
     loofah (2.18.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -325,7 +326,7 @@ GEM
       method_source (~> 1.0)
     pry-rails (0.3.9)
       pry (>= 0.10.4)
-    public_suffix (4.0.7)
+    public_suffix (5.0.3)
     puma (5.6.4)
       nio4r (~> 2.0)
     racc (1.6.0)
@@ -526,7 +527,7 @@ DEPENDENCIES
   iso_country_codes
   jbuilder
   jsbundling-rails
-  letter_opener_web (~> 1.0)
+  letter_opener_web (~> 2.0)
   meta-tags
   mini_magick
   omniauth-line
