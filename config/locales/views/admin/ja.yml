@@ -102,3 +102,13 @@ ja:
           title: アカウント設定
       index:
         title: アカウント設定
+    short_urls:
+      breadcrumb:
+        index:
+          title: 短縮リンク
+        new:
+          title: 新規作成
+      index:
+        title: 短縮リンク設定
+      new:
+        title: 短縮リンクを作成する

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_09_033135) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_27_153812) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -195,6 +195,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_09_033135) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "short_urls", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "admin_id", comment: "Adminテーブルの外部キー"
+    t.string "custom_key", null: false, comment: "カスタムキー"
+    t.string "label_name", null: false, comment: "URLラベルネーム"
+    t.text "original_url", null: false, comment: "短縮元URL"
+    t.string "utm_source", null: false, comment: "GA用参照元"
+    t.string "utm_medium", null: false, comment: "GA用メディア"
+    t.string "utm_campaign", null: false, comment: "GA用キャンペーン名"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["admin_id"], name: "index_short_urls_on_admin_id"
+  end
+
   create_table "tags", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name", null: false, comment: "タグ名"
     t.datetime "created_at", null: false
@@ -273,6 +286,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_09_033135) do
   add_foreign_key "article_tags", "tags"
   add_foreign_key "articles", "authors"
   add_foreign_key "articles", "categories"
+  add_foreign_key "short_urls", "admins"
   add_foreign_key "user_account_lockings", "users"
   add_foreign_key "user_account_trackings", "users"
   add_foreign_key "user_database_authentications", "users"

@@ -9,6 +9,7 @@ ja:
         pickup: イチオシ
         tag: タグ
         series: 連載
+        short_url: 短縮リンク
       newsletter_menu:
         deleted_newsletter_subscriber: 解約者リスト
         newsletter_subscriber: 購読者リスト

@@ -15,4 +15,6 @@ class Admin < ApplicationRecord
   has_one :admin_account_locking, primary_key: :admin_id
   has_one :admin_account_tracking, primary_key: :admin_id
   has_one :admin_password_reset_request, primary_key: :admin_id
+
+  has_many :short_urls
 end

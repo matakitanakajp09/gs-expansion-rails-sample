@@ -56,6 +56,16 @@ ja:
         current_status: ステータス
         scheduled_published_at: 公開予約時間
         published_at: 公開時間
+      short_url:
+        id: ID
+        custom_id: カスタムKey
+        label_name: ラベル名
+        original_url: 短縮元URL
+        short_url: 短縮URL
+        parameter_url: パラメータ付きURL
+        utm_source: 広告主
+        utm_medium: メディア名
+        utm_campaign: キャンペーン名
     enum:
       base_status: &base_status
         draft: 下書き
