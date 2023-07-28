@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_27_153812) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_28_035738) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   # Custom types defined in this database.
   # Note that some types may not work with other database engines. Be careful if changing database.
   create_enum "current_status", ["draft", "published", "archived", "trashed"]
+  create_enum "tracking_type", ["imp", "click"]
 
   create_table "action_text_rich_texts", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name", null: false
@@ -195,6 +196,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_27_153812) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "short_url_trackings", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "short_url_id", comment: "ShortUrlテーブルの外部キー"
+    t.enum "tracking_type", default: "imp", comment: "追跡タイプ", enum_type: "tracking_type"
+    t.datetime "created_at", null: false
+    t.index ["short_url_id"], name: "index_short_url_trackings_on_short_url_id"
+  end
+
   create_table "short_urls", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "admin_id", comment: "Adminテーブルの外部キー"
     t.string "custom_key", null: false, comment: "カスタムキー"
@@ -286,6 +294,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_27_153812) do
   add_foreign_key "article_tags", "tags"
   add_foreign_key "articles", "authors"
   add_foreign_key "articles", "categories"
+  add_foreign_key "short_url_trackings", "short_urls"
   add_foreign_key "short_urls", "admins"
   add_foreign_key "user_account_lockings", "users"
   add_foreign_key "user_account_trackings", "users"

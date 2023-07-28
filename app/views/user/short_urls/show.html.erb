@@ -7,7 +7,7 @@
           <%= @short_url&.parameter_url %>
         </div>
         <div class="article-main-content mt-3">
-          <%= link_to @short_url&.parameter_url, target: "_blank", class: "btn" do %>
+          <%= link_to click_short_url_path(id: params[:id]), target: "_blank", class: "btn" do %>
             外部サイトに移動する
           <% end %>
         </div>
