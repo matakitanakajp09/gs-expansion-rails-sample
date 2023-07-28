@@ -1,0 +1,27 @@
+<div class="l-container">
+  <%= render partial: "layouts/admin/article_menu" %>
+  <div class="l-main-view">
+    <div class="sw-main-header">
+      <div class="sw-main-header-title">
+        <%= t ".title" %>
+      </div>
+      <div class="sw-main-header-buttons">
+        <div class="sw-main-header-button">
+          <%= link_to new_admin_series_path, class: "btn btn-primary" do %>
+            <%= t "buttons.create" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="sw-main-body">
+      <%= render partial: "admin/flash" %>
+      <ul class="breadcrumb p-3">
+        <%= render partial: "admin/series/breadcrumb/index" %>
+      </ul>
+      <%= render partial: "admin/series/index_table" %>
+      <div class="d-flex justify-content-center m-2">
+        <%== pagy_bootstrap_nav(@pagy) %>
+      </div>
+    </div>
+  </div>
+</div>

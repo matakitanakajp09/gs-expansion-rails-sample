@@ -1,0 +1,159 @@
+<div class="l-container">
+  <%= render partial: "layouts/admin/article_menu" %>
+  <div class="l-main-view">
+    <div class="sw-main-header">
+      <div class="sw-main-header-title">
+        <%= @article.title %>
+      </div>
+      <div class="sw-main-header-buttons">
+        <div class="sw-main-header-button">
+          <%= link_to article_path(id: @article&.id), target: "_blank", class: "btn btn-primary" do %>
+            <%= t "buttons.preview" %>
+          <% end %>
+        </div>
+        <div class="sw-main-header-button">
+          <%= link_to edit_admin_article_path, class: "btn btn-primary" do %>
+            <%= t "buttons.edit" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="sw-main-body">
+      <ul class="breadcrumb p-3">
+        <%= render partial: "admin/articles/breadcrumb/index" %>
+        <%= render partial: "admin/articles/breadcrumb/show" %>
+      </ul>
+      <div class="section">
+        <%= render :partial => "admin/flash" %>
+      </div>
+      <div class="section">
+        <h2 class="admin-title">記事</h2>
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <div class="model-key">
+                  <%= t "activerecord.attributes.article.id" %>
+                </div>
+                <div class="model-value">
+                  <%= @article&.id %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <div class="model-key">
+                  <%= t "activerecord.attributes.author.name" %>
+                </div>
+                <div class="model-value">
+                  <%= link_to admin_author_path(@author&.id), class: "text-decoration-underline" do %>
+                    <%= @author&.name %>
+                  <% end %>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="model-key">
+                  <%= t "activerecord.attributes.category.name" %>
+                </div>
+                <div class="model-value">
+                  <%= link_to admin_category_path(@category&.id), class: "text-decoration-underline" do %>
+                    <%= @category&.name %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <div class="model-key">
+                  <%= t "activerecord.attributes.article.current_status" %>
+                </div>
+                <div class="model-value">
+                  <div class="status-mark <%= @article&.current_status %>"></div>
+                  <%= t "activerecord.enum.article.current_status.#{@article&.current_status}" %>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="model-key">
+                  <%= t "activerecord.attributes.article.published_at" %>
+                </div>
+                <div class="model-value">
+                  <%= @article&.published_at %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 mb-3">
+                <div class="model-key">
+                  <%= t "activerecord.attributes.article.thumbnail" %>
+                </div>
+                <div class="model-value w-100">
+                  <% if @article&.thumbnail.attached? %>
+                    <%= image_tag(@article&.thumbnail, class: "w-50") %>
+                  <% else %>
+                    画像なし
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 mb-3">
+                <div class="model-key">
+                  <%= t "activerecord.attributes.article.title" %>
+                </div>
+                <div class="model-value">
+                  <%= @article&.title %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 mb-3">
+                <div class="model-key">
+                  <%= t "activerecord.attributes.article.subtitle" %>
+                </div>
+                <div class="model-value">
+                  <%= @article&.subtitle %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 mb-3">
+                <div class="model-key">
+                  <%= t "activerecord.attributes.article.content" %>
+                </div>
+                <div class="model-value" id="kiji-main">
+                  <%= @article&.content %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <div class="model-key">
+                  <%= t "common.created_at" %>
+                </div>
+                <div class="model-value">
+                  <%= @article&.created_at %>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="model-key">
+                  <%= t "common.updated_at" %>
+                </div>
+                <div class="model-value">
+                  <%= @article&.updated_at %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <h2 class="admin-title">関連する連載</h2>
+        <%= render partial: "admin/series/index_table" %>
+      </div>
+      <div class="section">
+        <h2 class="admin-title">関連するタグ</h2>
+        <%= render partial: "admin/tags/index_table" %>
+      </div>
+    </div>
+  </div>
+</div>

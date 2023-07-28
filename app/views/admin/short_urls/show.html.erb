@@ -1,0 +1,127 @@
+<div class="l-container">
+  <%= render partial: "layouts/admin/article_menu" %>
+  <div class="l-main-view">
+    <div class="sw-main-header">
+      <div class="sw-main-header-title">
+        <%= @short_url&.label_name %>
+      </div>
+      <div class="sw-main-header-buttons">
+        <div class="sw-main-header-button">
+          <%= link_to edit_admin_short_url_path, class: "btn btn-primary" do %>
+            <%= t "buttons.edit" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="sw-main-body">
+      <ul class="breadcrumb p-3">
+        <%= render partial: "admin/short_urls/breadcrumb/index" %>
+        <%= render partial: "admin/short_urls/breadcrumb/show" %>
+      </ul>
+      <div class="section">
+        <%= render :partial => "admin/flash" %>
+      </div>
+      <div class="section">
+        <h2 class="admin-title">短縮リンク</h2>
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <div class="model-key">
+                  <%= t "activerecord.attributes.short_url.id" %>
+                </div>
+                <div class="model-value">
+                  <%= @short_url&.id %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <div class="model-key">
+                  <%= t "activerecord.attributes.short_url.label_name" %>
+                </div>
+                <div class="model-value">
+                  <%= @short_url&.label_name %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 mb-3">
+                <div class="model-key">
+                  <%= t "activerecord.attributes.short_url.original_url" %>
+                </div>
+                <div class="model-value">
+                  <%= @short_url&.original_url %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 mb-3">
+                <div class="model-key">
+                  <%= t "activerecord.attributes.short_url.short_url" %>
+                </div>
+                <div class="model-value">
+                  <%= @short_url&.short_url %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 mb-3">
+                <div class="model-key">
+                  <%= t "activerecord.attributes.short_url.parameter_url" %>
+                </div>
+                <div class="model-value">
+                  <%= @short_url&.parameter_url %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 mb-3">
+                <div class="model-key">
+                  <%= t "activerecord.attributes.short_url.utm_source" %>
+                </div>
+                <div class="model-value">
+                  <%= @short_url&.utm_source %>
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <div class="model-key">
+                  <%= t "activerecord.attributes.short_url.utm_medium" %>
+                </div>
+                <div class="model-value">
+                  <%= @short_url&.utm_medium %>
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <div class="model-key">
+                  <%= t "activerecord.attributes.short_url.utm_campaign" %>
+                </div>
+                <div class="model-value">
+                  <%= @short_url&.utm_campaign %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <div class="model-key">
+                  <%= t "common.created_at" %>
+                </div>
+                <div class="model-value">
+                  <%= @short_url&.created_at %>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="model-key">
+                  <%= t "common.updated_at" %>
+                </div>
+                <div class="model-value">
+                  <%= @short_url&.updated_at %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

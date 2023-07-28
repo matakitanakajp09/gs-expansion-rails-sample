@@ -9,12 +9,15 @@ ja:
         pickup: イチオシ
         tag: タグ
         series: 連載
+        short_url: 短縮リンク
       newsletter_menu:
         deleted_newsletter_subscriber: 解約者リスト
         newsletter_subscriber: 購読者リスト
         newsletter: ニュースレター
         title: メニュー
         subscriber_group: 購読者グループ
+      setting_menu:
+        setting: アカウント管理
     user:
       header:
         sign_in: ログイン

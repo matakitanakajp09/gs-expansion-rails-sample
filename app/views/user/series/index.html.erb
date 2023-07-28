@@ -7,8 +7,12 @@
       <div class="series-container-articles-contents">
         <%= link_to user_series_path(id: series&.id), class: "series-container-articles-contents-series" do %>
           <picture class="w-100 Image">
-            <source srcset="<%= "https://pub-d8167d0244bc47c6a3b1a2877c5b6a2e.r2.dev/#{series&.thumbnail_blob&.key}" %>">
-            <img decoding="async" src="<%= "https://pub-d8167d0244bc47c6a3b1a2877c5b6a2e.r2.dev/#{series&.thumbnail_blob&.key}" %>" alt="" class="w-100">
+            <% if series&.thumbnail.attached? %>
+              <source srcset="<%= url_for(series&.thumbnail) %>">
+              <%= image_tag(series.thumbnail, class: "w-100", alt: "イチオシ画像", decoding: "async") %>
+            <% else %>
+              <%= image_tag("sample-thumbnail.jpg", class: "w-100", alt: "イチオシ画像", decoding: "async") %>
+            <% end %>
           </picture>
         <% end %>
         <div class="series-container-articles-contents-list">
@@ -28,8 +32,12 @@
                 <%= link_to article_path(id: article&.id), class: "series-container-articles-contents-list-article-item" do %>
                   <div class="series-container-articles-contents-list-article-item-image">
                     <picture class="w-100 Image">
-                      <source srcset="<%= "https://article-image-ix.nikkei.com/https%3A%2F%2Fimgix-proxy.n8s.jp%2FDSXZQO3392145025052023000000-2.jpg?ixlib=js-3.8.0&w=638&h=398&auto=format%2Ccompress&fit=crop&bg=FFFFFF&s=42c85bbbb9d3daeef0675be6277c602e" %>">
-                      <img decoding="async" src="<%= "https://article-image-ix.nikkei.com/https%3A%2F%2Fimgix-proxy.n8s.jp%2FDSXZQO3392145025052023000000-2.jpg?ixlib=js-3.8.0&w=638&h=398&auto=format%2Ccompress&fit=crop&bg=FFFFFF&s=42c85bbbb9d3daeef0675be6277c602e" %>" alt="" class="w-100">
+                      <% if article&.thumbnail.attached? %>
+                        <source srcset="<%= url_for(article&.thumbnail) %>">
+                        <%= image_tag(article&.thumbnail, class: "w-100", alt: "イチオシ画像", decoding: "async") %>
+                      <% else %>
+                        <%= image_tag("sample-thumbnail.jpg", class: "w-100", alt: "イチオシ画像", decoding: "async") %>
+                      <% end %>
                     </picture>
                   </div>
                   <div class="series-container-articles-contents-list-article-item-caption">

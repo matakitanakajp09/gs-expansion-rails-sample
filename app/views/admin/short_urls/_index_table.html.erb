@@ -1,0 +1,31 @@
+<div class="sw-main-body-table table-responsive">
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>名前</th>
+        <th>短縮元URL</th>
+        <th>作成日</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @short_urls.each do |short_url| %>
+        <tr>
+          <td class="rowlink">
+            <%= link_to admin_short_url_path(id: short_url&.id) do %>
+            <% end %>
+          </td>
+          <td style="min-width: 100px;">
+            <%= short_url&.label_name %>
+          </td>
+          <td style="min-width: 100px;">
+            <%= short_url&.original_url %>
+          </td>
+          <td style="min-width: 150px;">
+            <%= short_url&.created_at %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

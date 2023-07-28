@@ -1,0 +1,44 @@
+<div class="sw-main-body-table table-responsive">
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th><%= t "activerecord.attributes.pickup.name" %></th>
+        <th><%= t "activerecord.attributes.pickup.open_status" %></th>
+        <th><%= t "activerecord.attributes.pickup.started_at" %></th>
+        <th><%= t "activerecord.attributes.pickup.expired_at" %></th>
+        <th><%= t "activerecord.attributes.pickup.thumbnail" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @pickups.each do |pickup| %>
+        <tr>
+          <td class="rowlink">
+            <%= link_to admin_pickup_path(id: pickup&.id) do %>
+            <% end %>
+          </td>
+          <td style="min-width: 100px;">
+            <%= pickup&.name %>
+          </td>
+          <td style="min-width: 125px;">
+            <div class="status-mark <%= pickup&.display_css_class %>"></div>
+            <%= t "activerecord.enum.pickup.open_status.#{pickup&.display_css_class}" %>
+          </td>
+          <td style="min-width: 150px;">
+            <%= pickup&.started_at %>
+          </td>
+          <td style="min-width: 150px;">
+            <%= pickup&.expired_at %>
+          </td>
+          <td style="width: 150px; min-width: 150px; max-height: 75px; padding: 12px;">
+            <% if pickup&.thumbnail.attached? %>
+              <%= image_tag(pickup&.thumbnail) %>
+            <% else %>
+              画像なし
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

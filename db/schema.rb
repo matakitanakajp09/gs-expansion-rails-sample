@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_29_113755) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_27_153812) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -117,6 +117,41 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_29_113755) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "article_series", force: :cascade do |t|
+    t.uuid "article_id", comment: "Articleテーブルの外部キー"
+    t.uuid "series_id", comment: "Seriesテーブルの外部キー"
+    t.integer "position", default: 100, comment: "順番"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_article_series_on_article_id"
+    t.index ["series_id"], name: "index_article_series_on_series_id"
+  end
+
+  create_table "article_tags", force: :cascade do |t|
+    t.uuid "article_id", comment: "Articleテーブルの外部キー"
+    t.uuid "tag_id", comment: "Tagテーブルの外部キー"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_article_tags_on_article_id"
+    t.index ["tag_id"], name: "index_article_tags_on_tag_id"
+  end
+
+  create_table "articles", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "author_id", comment: "Authorテーブルの外部キー"
+    t.uuid "category_id", comment: "Categoryテーブルの外部キー"
+    t.string "title", comment: "記事タイトル"
+    t.string "subtitle", comment: "記事サブタイトル"
+    t.enum "current_status", default: "draft", comment: "記事ステータス", enum_type: "current_status"
+    t.datetime "scheduled_published_at", comment: "公開予約日"
+    t.datetime "published_at", comment: "公開日"
+    t.boolean "is_sponsored", default: false, comment: "スポンサー記事か否か"
+    t.string "sponsor_name", comment: "スポンサー名"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_articles_on_author_id"
+    t.index ["category_id"], name: "index_articles_on_category_id"
+  end
+
   create_table "authors", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name", null: false, comment: "著者名"
     t.text "bio", null: false, comment: "著者説明"
@@ -124,8 +159,57 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_29_113755) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "banners", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name", null: false, comment: "バナー名"
+    t.datetime "started_at", comment: "掲載開始日"
+    t.datetime "expired_at", comment: "掲載終了日"
+    t.integer "position", default: 100, comment: "順番"
+    t.string "url", comment: "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "categories", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name", null: false, comment: "カテゴリ名"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pickups", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name", null: false, comment: "ピックアップ名"
+    t.datetime "started_at", comment: "掲載開始日"
+    t.datetime "expired_at", comment: "掲載終了日"
+    t.integer "position", default: 100, comment: "順番"
+    t.string "url", comment: "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "series", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "title", null: false, comment: "シリーズ名"
+    t.string "subtitle", comment: "シリーズのサブタイトル"
+    t.enum "current_status", default: "draft", comment: "ステータス", enum_type: "current_status"
+    t.datetime "published_at", comment: "公開日"
+    t.integer "position", default: 100, comment: "順番"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "short_urls", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "admin_id", comment: "Adminテーブルの外部キー"
+    t.string "custom_key", null: false, comment: "カスタムキー"
+    t.string "label_name", null: false, comment: "URLラベルネーム"
+    t.text "original_url", null: false, comment: "短縮元URL"
+    t.string "utm_source", null: false, comment: "GA用参照元"
+    t.string "utm_medium", null: false, comment: "GA用メディア"
+    t.string "utm_campaign", null: false, comment: "GA用キャンペーン名"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["admin_id"], name: "index_short_urls_on_admin_id"
+  end
+
+  create_table "tags", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name", null: false, comment: "タグ名"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -196,6 +280,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_29_113755) do
   add_foreign_key "admin_account_trackings", "admins"
   add_foreign_key "admin_database_authentications", "admins"
   add_foreign_key "admin_password_reset_requests", "admins"
+  add_foreign_key "article_series", "articles"
+  add_foreign_key "article_series", "series"
+  add_foreign_key "article_tags", "articles"
+  add_foreign_key "article_tags", "tags"
+  add_foreign_key "articles", "authors"
+  add_foreign_key "articles", "categories"
+  add_foreign_key "short_urls", "admins"
   add_foreign_key "user_account_lockings", "users"
   add_foreign_key "user_account_trackings", "users"
   add_foreign_key "user_database_authentications", "users"

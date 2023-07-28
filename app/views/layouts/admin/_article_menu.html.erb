@@ -7,13 +7,43 @@
       <div class="sw-menu">
         <ul class="sw-menu-link">
           <li>
+            <%= link_to admin_articles_path do %>
+              <span><%= t ".article" %></span>
+            <% end %>
+          </li>
+          <li>
             <%= link_to admin_authors_path do %>
               <span><%= t ".author" %></span>
             <% end %>
           </li>
           <li>
+            <%= link_to admin_series_index_path do %>
+              <span><%= t ".series" %></span>
+            <% end %>
+          </li>
+          <li>
             <%= link_to admin_categories_path do %>
               <span><%= t ".category" %></span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to admin_tags_path do %>
+              <span><%= t ".tag" %></span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to admin_pickups_path do %>
+              <span><%= t ".pickup" %></span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to admin_banners_path do %>
+              <span><%= t ".banner" %></span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to admin_short_urls_path do %>
+              <span><%= t ".short_url" %></span>
             <% end %>
           </li>
         </ul>

@@ -1,0 +1,55 @@
+<%= form_with model: [:admin, @short_url], local: true do |f| %>
+  <%= f.hidden_field :admin_id, :value => current_admin&.id %>
+  <div class="section">
+    <div class="d-flex justify-content-between border-bottom pb-3">
+      <div></div>
+      <div class="d-flex">
+        <div>
+          <button class="btn btn-primary"><%= t "buttons.save" %></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="card border-0">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12 mt-3">
+            <%= f.label :label_name, class: "mb-1 form-label text-small text-muted" do %>
+              <%= t "activerecord.attributes.short_url.label_name" %>
+            <% end %>
+            <%= f.text_field :label_name, autofocus: true, class: "form-control", placeholder: "" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 mt-3">
+            <%= f.label :original_url, class: "mb-1 form-label text-small text-muted" do %>
+              <%= t "activerecord.attributes.short_url.original_url" %>
+            <% end %>
+            <%= f.text_field :original_url, autofocus: true, class: "form-control", placeholder: "" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 mt-3">
+            <%= f.label :utm_source, class: "mb-1 form-label text-small text-muted" do %>
+              <%= t "activerecord.attributes.short_url.utm_source" %>
+            <% end %>
+            <%= f.text_field :utm_source, autofocus: true, class: "form-control", placeholder: "" %>
+          </div>
+          <div class="col-md-4 mt-3">
+            <%= f.label :utm_medium, class: "mb-1 form-label text-small text-muted" do %>
+              <%= t "activerecord.attributes.short_url.utm_medium" %>
+            <% end %>
+            <%= f.text_field :utm_medium, autofocus: true, class: "form-control", placeholder: "" %>
+          </div>
+          <div class="col-md-4 mt-3">
+            <%= f.label :utm_campaign, class: "mb-1 form-label text-small text-muted" do %>
+              <%= t "activerecord.attributes.short_url.utm_campaign" %>
+            <% end %>
+            <%= f.text_field :utm_campaign, autofocus: true, class: "form-control", placeholder: "" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

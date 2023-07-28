@@ -1,5 +1,40 @@
 ja:
   admin:
+    articles:
+      breadcrumb:
+        index:
+          title: 記事リスト
+        show:
+          title: 記事
+        edit:
+          title: 編集する
+      index:
+      new:
+        title: 記事を新規作成する
+    authors:
+      breadcrumb:
+        index:
+          title: 著者リスト
+        show:
+          title: 著者詳細
+      index:
+        title: 著者を管理する
+      show:
+        title: 著者の情報
+      new:
+        title: 著者の情報を作成する
+    banners:
+      breadcrumb:
+        index:
+          title: バナーリスト
+        show:
+          title: バナー詳細
+      index:
+        title: バナーを管理する
+      show:
+        title: バナーの情報
+      new:
+        title: バナーの情報を作成する
     common:
       basic:
         title: 基本設定
@@ -15,18 +50,6 @@ ja:
         title: 編集
       preview:
         title: プレビュー
-    authors:
-      breadcrumb:
-        index:
-          title: 著者リスト
-        show:
-          title: 著者詳細
-      index:
-        title: 著者を管理する
-      show:
-        title: 著者の情報
-      new:
-        title: 著者の情報を作成する
     categories:
       breadcrumb:
         index:
@@ -39,3 +62,53 @@ ja:
         title: カテゴリの情報
       new:
         title: カテゴリの情報を作成する
+    pickups:
+      breadcrumb:
+        index:
+          title: イチオシリスト
+        show:
+          title: イチオシ詳細
+      index:
+        title: イチオシを管理する
+      show:
+        title: イチオシの情報
+      new:
+        title: イチオシの情報を作成する
+    tags:
+      breadcrumb:
+        index:
+          title: タグリスト
+        show:
+          title: タグ詳細
+      index:
+        title: タグを管理する
+      show:
+        title: タグの情報
+      new:
+        title: タグの情報を作成する
+    series:
+      breadcrumb:
+        index:
+          title: 連載リスト
+        reserving_publish:
+          title: 公開予約する
+      index:
+        title: 連載リスト
+      reserving_publish:
+        title: 公開予約設定
+    settings:
+      breadcrumb:
+        index:
+          title: アカウント設定
+      index:
+        title: アカウント設定
+    short_urls:
+      breadcrumb:
+        index:
+          title: 短縮リンク
+        new:
+          title: 新規作成
+      index:
+        title: 短縮リンク設定
+      new:
+        title: 短縮リンクを作成する

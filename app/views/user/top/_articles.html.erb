@@ -13,8 +13,12 @@
     <div class="top-articles-left">
       <%= link_to article_path(id: articles[0]&.id) do %>
         <picture class="w-100 Image">
-          <source srcset="<%= "https://article-image-ix.nikkei.com/https%3A%2F%2Fimgix-proxy.n8s.jp%2FDSXZQO3392145025052023000000-2.jpg?ixlib=js-3.8.0&w=638&h=398&auto=format%2Ccompress&fit=crop&bg=FFFFFF&s=42c85bbbb9d3daeef0675be6277c602e" %>">
-          <img decoding="async" src="<%= "https://article-image-ix.nikkei.com/https%3A%2F%2Fimgix-proxy.n8s.jp%2FDSXZQO3392145025052023000000-2.jpg?ixlib=js-3.8.0&w=638&h=398&auto=format%2Ccompress&fit=crop&bg=FFFFFF&s=42c85bbbb9d3daeef0675be6277c602e" %>" alt="" class="w-100">
+          <% if articles[0]&.thumbnail.attached? %>
+            <source srcset="<%= url_for(articles[0]&.thumbnail) %>">
+            <%= image_tag(articles[0]&.thumbnail, class: "w-100", alt: "イチオシ画像", decoding: "async") %>
+          <% else %>
+            <%= image_tag("sample-thumbnail.jpg", class: "w-100", alt: "イチオシ画像", decoding: "async") %>
+          <% end %>
         </picture>
         <p class="subtitle"><%= articles[0]&.subtitle %></p>
         <h3 class="fs-5 fw-bold"><%= articles[0]&.title %></h3>
@@ -30,8 +34,12 @@
             <div class="top-articles-right-article-content">
               <div class="top-articles-right-article-content-image">
                 <picture class="w-100 Image">
-                  <source srcset="<%= "https://article-image-ix.nikkei.com/https%3A%2F%2Fimgix-proxy.n8s.jp%2FDSXZQO3392145025052023000000-2.jpg?ixlib=js-3.8.0&w=638&h=398&auto=format%2Ccompress&fit=crop&bg=FFFFFF&s=42c85bbbb9d3daeef0675be6277c602e" %>">
-                  <img decoding="async" src="<%= "https://article-image-ix.nikkei.com/https%3A%2F%2Fimgix-proxy.n8s.jp%2FDSXZQO3392145025052023000000-2.jpg?ixlib=js-3.8.0&w=638&h=398&auto=format%2Ccompress&fit=crop&bg=FFFFFF&s=42c85bbbb9d3daeef0675be6277c602e" %>" alt="" class="w-100">
+                  <% if article&.thumbnail.attached? %>
+                    <source srcset="<%= url_for(article&.thumbnail) %>">
+                    <%= image_tag(article&.thumbnail, class: "w-100", alt: "イチオシ画像", decoding: "async") %>
+                  <% else %>
+                    <%= image_tag("sample-thumbnail.jpg", class: "w-100", alt: "イチオシ画像", decoding: "async") %>
+                  <% end %>
                 </picture>
               </div>
               <div>

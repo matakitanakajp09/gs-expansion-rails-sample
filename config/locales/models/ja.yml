@@ -4,13 +4,68 @@ ja:
     updated_at: 更新日
   activerecord:
     attributes:
+      article:
+        id: ID
+        title: タイトル
+        subtitle: 小タイトル
+        published_at: 公開日
+        thumbnail: 画像
+        content: 内容
+        category_type: カテゴリ
+        current_status: ステータス
+        author: 著者
+        article_tag: タグ
+        article_series: 連載
+        views:
+          tab:
+            all: 記事を管理する
       author:
         id: ID
         name: 著者名
         bio: 著者情報
+      banner:
+        id: ID
+        name: バナー名
+        thumbnail: 画像
+        started_at: 掲載開始日時
+        expired_at: 掲載終了日時
+        position: 順番
+        open_status: 公開状況
+        created_at: 作成日
+        updated_at: 更新日
       category:
         id: ID
         name: カテゴリ名
+      pickup:
+        id: ID
+        name: イチオシ名
+        thumbnail: 画像
+        started_at: 掲載開始日時
+        expired_at: 掲載終了日時
+        position: 順番
+        open_status: 公開状況
+        created_at: 作成日
+        updated_at: 更新日
+      tag:
+        id: ID
+        name: タグ名
+      series:
+        id: ID
+        title: タイトル
+        subtitle: 小タイトル
+        current_status: ステータス
+        scheduled_published_at: 公開予約時間
+        published_at: 公開時間
+      short_url:
+        id: ID
+        custom_id: カスタムKey
+        label_name: ラベル名
+        original_url: 短縮元URL
+        short_url: 短縮URL
+        parameter_url: パラメータ付きURL
+        utm_source: 広告主
+        utm_medium: メディア名
+        utm_campaign: キャンペーン名
     enum:
       base_status: &base_status
         draft: 下書き

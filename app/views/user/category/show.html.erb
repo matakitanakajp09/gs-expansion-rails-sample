@@ -8,8 +8,12 @@
         <div class="category-container-articles-list-content">
           <%= link_to article_path(id: article&.id) do %>
             <picture class="w-100 Image">
-              <source srcset="<%= "https://article-image-ix.nikkei.com/https%3A%2F%2Fimgix-proxy.n8s.jp%2FDSXZQO3392145025052023000000-2.jpg?ixlib=js-3.8.0&w=638&h=398&auto=format%2Ccompress&fit=crop&bg=FFFFFF&s=42c85bbbb9d3daeef0675be6277c602e" %>">
-              <img decoding="async" src="<%= "https://article-image-ix.nikkei.com/https%3A%2F%2Fimgix-proxy.n8s.jp%2FDSXZQO3392145025052023000000-2.jpg?ixlib=js-3.8.0&w=638&h=398&auto=format%2Ccompress&fit=crop&bg=FFFFFF&s=42c85bbbb9d3daeef0675be6277c602e" %>" alt="" class="w-100">
+              <% if article&.thumbnail.attached? %>
+                <source srcset="<%= url_for(article&.thumbnail) %>">
+                <%= image_tag(article&.thumbnail, class: "w-100", alt: "イチオシ画像", decoding: "async") %>
+              <% else %>
+                <%= image_tag("sample-thumbnail.jpg", class: "w-100", alt: "イチオシ画像", decoding: "async") %>
+              <% end %>
             </picture>
             <h2 class="fs-5 fw-bold"><%= article&.title %></h2>
             <div class="article-status">

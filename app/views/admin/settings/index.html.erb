@@ -1,0 +1,20 @@
+<div class="l-container">
+  <%= render partial: "layouts/admin/setting_menu" %>
+  <div class="l-main-view">
+    <div class="sw-main-header">
+      <div class="sw-main-header-title">アカウント管理</div>
+      <div class="sw-main-header-buttons">
+        <div class="sw-main-header-button">
+          <%= link_to destroy_admin_database_authentication_session_path, class: "btn btn-danger", data: { turbo_method: :delete }  do %>
+            ログアウト
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="sw-main-body">
+      <ul class="breadcrumb p-3">
+        <%= render partial: "admin/settings/breadcrumb/index" %>
+      </ul>
+    </div>
+  </div>
+</div>

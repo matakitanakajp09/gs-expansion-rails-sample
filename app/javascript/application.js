@@ -6,6 +6,8 @@ import "flatpickr/dist/l10n/ja.js"
 import { initSortable } from "./initSortable"
 import "trix"
 import "@rails/actiontext"
+import * as ActiveStorage from "@rails/activestorage"
+ActiveStorage.start()
 
 if (!window.__appClientLoaded) {
   window.__appClientLoaded = true;

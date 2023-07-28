@@ -1,0 +1,60 @@
+<%= form_with model: [:admin, @series], local: true do |f| %>
+  <div class="section">
+    <div class="d-flex justify-content-between border-bottom pb-3">
+      <div></div>
+      <div class="d-flex">
+        <div>
+          <button class="btn btn-primary"><%= t "buttons.save" %></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="card border-0">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <%= f.label :current_status, class: "mb-1 form-label text-small text-muted" do %>
+              <%= t "activerecord.attributes.article.current_status" %>
+            <% end %>
+            <%= f.select :current_status, Series.current_statuses.keys.map{|k| [t("activerecord.enum.article.current_status.#{k}"), k]}, {}, data: { controller: "select" } %>
+            <div class="invalid-feedback"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <div class="form-label">
+              <%= t "activerecord.attributes.series.title" %>
+            </div>
+            <%= f.text_field :title, class: "form-control #{'is-invalid' if f.object.errors.full_messages_for(:title)[0].present? }" %>
+            <div class="text-danger">
+              <%= @series.errors.full_messages_for(:title)[0] %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <div class="form-label">
+              <%= t "activerecord.attributes.series.subtitle" %>
+            </div>
+            <%= f.text_field :subtitle, class: "form-control #{'is-invalid' if f.object.errors.full_messages_for(:subtitle)[0].present? }" %>
+            <div class="text-danger">
+              <%= @series.errors.full_messages_for(:subtitle)[0] %>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-5">
+          <div class="col-md-6 mb-3">
+            <div class="form-label">
+              <%= t "activerecord.attributes.series.thumbnail" %>
+            </div>
+            <%= f.file_field :thumbnail, class: "form-control #{'is-invalid' if f.object.errors.full_messages_for(:thumbnail)[0].present? }" %>
+            <div class="text-danger">
+              <%= @series.errors.full_messages_for(:thumbnail)[0] %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
